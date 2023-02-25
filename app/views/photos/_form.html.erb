@@ -1,0 +1,20 @@
+<div class="col-6 p-5 card rounded">
+  <%= form_with(model: photo) do |form| %>
+
+    <% if photo.errors.any? %>
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+      <% photo.errors.each do |error| %>
+        <p><%= error.full_message %></p>
+      <% end %>
+    <% end %>
+
+    <div>
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="mt-3">
+      <%= form.submit, class: "btn btn-sm btn-success" %>
+    </div>
+  <% end %>
+</div>
